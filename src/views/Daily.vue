@@ -8,7 +8,6 @@ export default {
 }
 </script>
 <style lang="scss" pug>
-	@import '@/assets/scss/_mixins';
 	.home-wrapper {
 		text-align: center;
 	}
