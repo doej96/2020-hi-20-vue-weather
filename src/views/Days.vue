@@ -1,10 +1,10 @@
 <template lang="pug">
 	.home-wrapper
-		h1 HOME
+		h1 5DAYS
 </template>
 <script>
 export default {
-	name: 'Home'
+	name: 'Days'
 }
 </script>
 <style lang="scss" pug>
