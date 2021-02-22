@@ -4,7 +4,7 @@ const DAILY_URL = 'https://api.openweathermap.org/data/2.5/weather'
 const DAYS_URL = 'https://api.openweathermap.org/data/2.5/forecast'
 const params = { units: 'metric', lang: 'kr', appid: process.env.VUE_APP_APPID }
 
-//현재 위치의 navigator.getPosition() : 위도, 경도
+// 현재 위치의 navigator.getPosition()
 const getPosition = () => {
 	return new Promise((resolve, reject) => {
 		navigator.geolocation.getCurrentPosition((r) => {
@@ -12,7 +12,7 @@ const getPosition = () => {
 		}, (err) => {
 			reject(err)
 		})
-	})
+	});
 }
 
 // selectedCity => daily
