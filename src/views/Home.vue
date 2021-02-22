@@ -17,15 +17,20 @@ export default {
 	computed: { ...mapGetters(['GET_DAILY', 'GET_GEO']) },
 	created() {
 		this.$store.dispatch('ACT_POSITION')
+		console.log(process.env);
 	},
 	data() {
 		return {
+		
 		}
+	},
+	methods: {
+		
 	}
 }
 </script>
-<style lang="scss" pug>
-	.home-wrapper {
-		text-align: center;
-	}
+<style lang="scss" scoped>
+.home-wrapper {
+	text-align: center;
+}
 </style>
