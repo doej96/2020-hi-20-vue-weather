@@ -14,7 +14,7 @@ import Search from '../components/Search.vue'
 export default {
 	name: 'Home',
 	components: { Search },
-	computed: { ...mapGetters(['GET_DAILY', 'GET_CITY']) },
+	computed: { ...mapGetters(['GET_DAILY', 'GET_GEO']) },
 	created() {
 		this.$store.dispatch('ACT_POSITION')
 	},
