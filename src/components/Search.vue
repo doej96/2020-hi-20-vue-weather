@@ -3,15 +3,32 @@
 		b-form-select(v-model="selected" :options="city" size="lg")
 </template>
 <script>
+	import axios from 'axios'
+
 export default {
 	name: 'Search',
+	async created() {
+		const r = await axios.get('/json/city.json')
+		this.city = r.data.map((v) => {
+			v.text = v.name
+			v.value = v.id
+			return v;
+		});
+		// 다 돌리고 난 다음에 삽입
+		this.city.unshift({value: null, text: '도시를 선택하세요.'})
+		//unshift: 배열 맨 앞에 데이터 삽입
+		this.app_id = process.env.VUE_APP_ID
+	},
+	watch: {
+		selected: function(nv, ov) {
+			this.$store.dispatch('ACT_CITY', nv)
+		}
+	},
 	data() {
 		return {
 			selected: null,
-			city: [
-				{ value: '181123', text: '서울' },
-				{ value: '181124', text: '인천' },
-			]
+			city: [],
+			app_id: ''
 		}
 	}
 }
