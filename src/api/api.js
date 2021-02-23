@@ -1,23 +1,24 @@
 import axios from 'axios'
+import { getCoords } from '../modules/utils'
 
 const DAILY_URL = 'https://api.openweathermap.org/data/2.5/weather'
 const DAYS_URL = 'https://api.openweathermap.org/data/2.5/forecast'
 const params = { units: 'metric', lang: 'kr', appid: process.env.VUE_APP_APPID }
 
-// 현재 위치의 navigator.getPosition()
-const getPosition = () => {
-	return new Promise((resolve, reject) => {
-		navigator.geolocation.getCurrentPosition((r) => {
-			resolve({ lat: r.coords.latitude, lon: r.coords.longitude })
-		}, (err) => {
-			reject(err)
-		})
-	});
+const getPositionn = async () => {
+	return await getDaily(await getCoords())
 }
 
 // selectedCity => daily
-const getDaily = async (id) => {
-	params.id = id
+const getDaily = async (val) => {
+	params.id = ''
+	params.lat = ''
+	params.lon = ''
+	if(typeof v == 'string' || 'number') params.id = v
+	else {
+		params.lat = v.lat
+		params.lon = v.lon
+	}
 	const r = await axios.get(DAILY_URL, { params })
 	return r.data
 }

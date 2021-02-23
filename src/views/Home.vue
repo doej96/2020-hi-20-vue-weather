@@ -3,20 +3,22 @@
 		.title-wrapper
 			h2 Vue를 활용한 날씨정보 앱
 				small.ml-3 v1.0
-			h1 {{ GET_DAILY.name }}
-			h1 lat: {{ GET_GEO.lat }} / lon: {{ GET_GEO.lon }}
-		Search
+		Search.Search
+		Daily(:value="GET_DAILY")
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import Search from '../components/Search.vue'
+import Daily from '../components/weather/Daily.vue'
 
 export default {
 	name: 'Home',
-	components: { Search },
-	computed: { ...mapGetters(['GET_DAILY', 'GET_GEO']) },
+	components: { Search, Daily },
+	computed: { ...mapGetters(['GET_DAILY']) },
+	//GET_DAILY의 값이 바뀌면 view단의 GET_DAILY.name 바뀜
+	//action ->  getDaily요청, api에서 실행해서 return해줌 -> action에서 받아서 MUT_DAILY(mutations에서 돌아서 r가져옴)
 	created() {
-		this.$store.dispatch('ACT_POSITION')
+		this.$store.dispatch('ACT_WEATHER', null)
 		console.log(process.env);
 	},
 	data() {
@@ -32,5 +34,11 @@ export default {
 <style lang="scss" scoped>
 .home-wrapper {
 	text-align: center;
+	@include flex($CT, $CT);
+	flex-direction: column;
+	.Search {
+		min-width: 200px;
+		margin: 2em 0;
+	}
 }
 </style>
