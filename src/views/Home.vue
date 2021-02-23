@@ -4,7 +4,7 @@
 			h2 Vue를 활용한 날씨정보 앱
 				small.ml-3 v1.0
 		Search.Search
-		Daily(:value="GET_DAILY")
+		Daily
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -14,7 +14,7 @@ import Daily from '../components/weather/Daily.vue'
 export default {
 	name: 'Home',
 	components: { Search, Daily },
-	computed: { ...mapGetters(['GET_DAILY']) },
+	//computed: { ...mapGetters(['GET_DAILY']) },
 	//GET_DAILY의 값이 바뀌면 view단의 GET_DAILY.name 바뀜
 	//action ->  getDaily요청, api에서 실행해서 return해줌 -> action에서 받아서 MUT_DAILY(mutations에서 돌아서 r가져옴)
 	created() {

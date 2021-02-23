@@ -15,13 +15,13 @@ export default {
 			return v;
 		});
 		// 다 돌리고 난 다음에 삽입
-		this.city.unshift({value: null, text: '도시를 선택하세요.'})
+		this.city.unshift({value: null, text: '현재위치'})
 		//unshift: 배열 맨 앞에 데이터 삽입
 		this.app_id = process.env.VUE_APP_ID
 	},
 	watch: {
 		selected: function(nv, ov) {
-			this.$store.dispatch('ACT_CITY', nv)
+			this.$store.dispatch('ACT_WEATHER', nv)
 		}
 	},
 	data() {
