@@ -1,10 +1,14 @@
 <template lang="pug">
 	.home-wrapper
-		h1 5DAYS
+		title
+		DayList
 </template>
 <script>
+import DayList from '../components/weather/DayList.vue'
+
 export default {
-	name: 'Days'
+	name: 'Days',
+	components: { DayList }
 }
 </script>
 <style lang="scss" pug>
