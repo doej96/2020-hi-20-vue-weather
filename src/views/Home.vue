@@ -3,7 +3,7 @@
 		.title-wrapper
 			h2 Vue를 활용한 날씨정보 앱
 				small.ml-3 v1.0
-		Search.Search
+		Search.Search(:value="value")
 		Daily
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
 	},
 	data() {
 		return {
-		
+			value: 'ACT_DAILY'
 		}
 	},
 	methods: {
@@ -33,6 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home-wrapper {
+	padding: 1em 2em;
 	text-align: center;
 	@include flex($CT, $CT);
 	flex-direction: column;

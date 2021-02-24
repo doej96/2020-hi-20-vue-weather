@@ -2,7 +2,7 @@
 	.home-wrapper
 		.title-wrapper
 			h1 computed vs watch
-		Search
+				small.ml-3 v1.0
 		input(type="text" v-model="query")
 		div {{ myName }}
 </template>
