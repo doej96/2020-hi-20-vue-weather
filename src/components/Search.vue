@@ -3,7 +3,7 @@
 		b-form-select(v-model="selected" :options="city" size="lg")
 </template>
 <script>
-	import axios from 'axios'
+import axios from 'axios'
 
 export default {
 	name: 'Search',
@@ -13,11 +13,9 @@ export default {
 		this.city = r.data.map((v) => {
 			v.text = v.name
 			v.value = v.id
-			return v;
+			return v
 		});
-		// 다 돌리고 난 다음에 삽입
 		this.city.unshift({value: null, text: '현재위치'})
-		//unshift: 배열 맨 앞에 데이터 삽입
 		this.selected = this.selCity || null
 	},
 	watch: {
@@ -27,12 +25,12 @@ export default {
 	},
 	data() {
 		return {
-			selected: null,
-			app_id: [],
+			selected: '',
+			city: [],
 		}
 	}
 }
 </script>
-<style lang="scss" scoped>
-	
+<style lang="scss">
+
 </style>

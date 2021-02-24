@@ -6,10 +6,10 @@
 		DayList.day-list(:value="GET_DAYS")
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import Search from '../components/Search.vue'
 import DayList from '../components/weather/DayList.vue'
 import Title from '../components/weather/Title.vue'
-import { mapGetters } from 'vuex'
 
 export default {
 	name: 'Days',
@@ -31,7 +31,7 @@ export default {
 	},
 }
 </script>
-<style lang="scss" pug>
+<style lang="scss" scoped>
 .days-wrapper {
 	@include flex($ST, $ST);
 	flex-direction: column;

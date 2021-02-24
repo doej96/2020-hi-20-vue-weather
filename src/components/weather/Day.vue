@@ -8,7 +8,6 @@
 			Wind.Wind(:value="wind")
 			Time.Time(:value="time")
 </template>
-
 <script>
 import Time from './Time.vue'
 import Temp from './Temp.vue'
@@ -22,7 +21,7 @@ export default {
 	name: 'Day',
 	props: ['value'],
 	components: { Time, Temp, Icon, Summary, Wind },
-	computed:{
+	computed: {
 		time: function() {
 			return (
 				this.value
@@ -42,11 +41,11 @@ export default {
 				this.value
 				? {
 						temp: this.value.main.temp, 
-						feel: this.value.main.feel_like,
+						feel: this.value.main.feels_like,
 						max: this.value.main.temp_max,
 						min: this.value.main.temp_min,
 					}
-				: {temp:'', feel:'', max:'', min:''}
+				: { temp: '', feel: '', max: '', min: '' }
 			)
 		},
 		summary: function() {
@@ -54,18 +53,19 @@ export default {
 				this.value
 				? {
 					desc: this.value.weather[0].description, 
-					main: this.value.weather[0].main}
-				: {desc:'', main:''}
+					main: this.value.weather[0].main
+					}
+				: {desc: '', main: ''}
 			)
 		},
 		wind: function() {
 			return (
 				this.value
 				? {
-					speed: this.value.wind.speed,
-					deg: this.value.wind.deg
+						speed: this.value.wind.speed,
+						deg: this.value.wind.deg
 					}
-				: {speed:'', deg:''}
+				: { speed: '', deg: '' }
 			)
 		}
 	}
