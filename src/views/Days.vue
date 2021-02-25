@@ -4,7 +4,7 @@
 			Title.title(:value="title")
 			Search.search(:action="`ACT_DAYS`" :selCity="GET_CITY")
 		transition(name="slide-fade" mode="out-in")
-			DayList.day-list(:value="GET_DAYS" :key="tKey")
+			DayList.day-list(:value="GET_DAYS" :key="tKey" :v-if="GET_DAYS")
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -17,7 +17,7 @@ export default {
 	components: { DayList, Title, Search },
 	data() {
 		return {
-			tKey: ''
+			tKey: '',
 		}
 	},
 	computed: {
@@ -25,13 +25,13 @@ export default {
 		title: function() {
 			return (
 				this.GET_DAYS
-				? { name: this.GET_DAYS.city.name, country: this.GET_DAYS.city.country }
+				? { name: this.GET_DAYS.city.name + ', ', country: this.GET_DAYS.city.country }
 				: { name: '', country: '' }
 			)
 		},
 	},
 	watch: {
-		GET_DAYS: function(nv) {
+		GET_DAYS: function(nv){
 			if(nv) this.tKey = nv.city.name
 		}
 	}
