@@ -30,8 +30,7 @@ export default {
 	.wrapper-view {
 		border-left: 1px solid $colorLight;
 		border-right: 1px solid $colorLight;
-		flex-grow: 1;
-		overflow-y: hidden;
+		overflow-y: auto;
 		@include mobile {
 			border-left: none;
 			border-right: none;

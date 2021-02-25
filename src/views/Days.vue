@@ -3,7 +3,7 @@
 		.title-wrapper
 			Title.title(:value="title")
 			Search.search(:action="`ACT_DAYS`" :selCity="GET_CITY")
-		transition(name="slide-fade" mode="out-in")
+		transition(name="fade" mode="out-in")
 			DayList.day-list(:value="GET_DAYS" :key="tKey" :v-if="GET_DAYS")
 </template>
 <script>
@@ -39,6 +39,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .days-wrapper {
+	overflow-y: hidden;
 	@include flex($ST, $ST);
 	flex-direction: column;
 	.title-wrapper {
