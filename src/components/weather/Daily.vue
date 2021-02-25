@@ -40,8 +40,8 @@ export default {
 		icon: function() {
 			return (
 				this.GET_DAILY
-				? `http://openweathermap.org/img/wn/${this.GET_DAILY.weather[0].icon}@2x.png`
-				: 'http://via.placeholder.com/25x25&text=no%20icon'
+				? `https://openweathermap.org/img/wn/${this.GET_DAILY.weather[0].icon}@2x.png`
+				: 'https://via.placeholder.com/25x25&text=no%20icon'
 			)
 		},
 		temp: function() {
@@ -49,7 +49,7 @@ export default {
 				this.GET_DAILY
 				? {
 						temp: this.GET_DAILY.main.temp, 
-						feel: this.GET_DAILY.main.feel_like,
+						feel: this.GET_DAILY.main.feels_like,
 						max: this.GET_DAILY.main.temp_max,
 						min: this.GET_DAILY.main.temp_min,
 					}
