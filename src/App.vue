@@ -1,7 +1,7 @@
 <template lang="pug">
 	#app.container 
 		Header
-		transition(name="fade" mode="out-in")
+		transition(name="slide-fade" mode="out-in")
 			router-view.wrapper-view 
 		Footer 
 </template>

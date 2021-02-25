@@ -1,5 +1,5 @@
 <template lang="pug">
-	.wrapper wind
+	.wrapper
 		i.fa.fa-arrow-down(:style="style")
 		span.direction {{direction}}
 		span.speed {{value.speed}}
